@@ -1,0 +1,17 @@
+from enum import Enum
+
+
+class Position(Enum):
+    GOALKEEPER = 'GK'
+    LEFT_BACK = 'LB'
+    RIGHT_BACK = 'RB'
+    CENTER_BACK = 'CB'
+    CENTRAL_DEFENSIVE_MIDFIELD = 'CDM'
+    CENTRAL_MIDFIELD = 'CM'
+    CENTRAL_ATTACKING_MIDFIELD = 'CAM'
+    CENTER_FORWARD = 'CF'
+    LEFT_MIDFIELD = 'LM'
+    RIGHT_MIDFIELD = 'RM'
+    LEFT_WING = 'LW'
+    RIGHT_WING = 'RW'
+    STRIKER = 'ST'
