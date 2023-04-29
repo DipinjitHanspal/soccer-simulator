@@ -1,12 +1,11 @@
 import sys
+import unittest
 
 sys.path.append("/Users/dipin/Development/SoccerSimulator/")
 sys.path.append("/Users/dipin/Development/SoccerSimulator/models")
-import unittest
 
-from generator import *
-from models.player import *
-from models.team import Team
+from factories.team import generate_players_for_team
+from team import Team
 
 
 class TeamTest(unittest.TestCase):

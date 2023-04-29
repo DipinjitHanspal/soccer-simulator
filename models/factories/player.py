@@ -1,5 +1,5 @@
-from models.player import Defender, Forward, Goalkeeper, Midfield, Player
-from models.position import Position
+from player import Defender, Forward, Goalkeeper, Midfield, Player
+from position import Position
 
 
 def generate_player(name, position):

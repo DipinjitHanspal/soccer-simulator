@@ -24,7 +24,7 @@ def run_simulation(games_per_team: int):
     pass
     schedule = generate_schedule()
     for game in schedule:
-        pass
+        simulate_match()
 
 
 def simulate_match(home_team: Team, away_team: Team):
@@ -35,5 +35,5 @@ def simulate_player_matchup():
     pass
 
 
-def generate_schedule():
+def generate_schedule() -> List[Game]:
     pass

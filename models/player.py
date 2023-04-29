@@ -1,7 +1,7 @@
 from position import Position
 
 
-class Player:
+class Player(object):
     number = 0
     name = ""
     position = None
@@ -15,7 +15,6 @@ class Player:
         self.position = position
         self.team = team
         self.active = active
-        print("self. position:", self.position)
 
     def generate_form(self):
         pass
@@ -42,6 +41,9 @@ class Midfield(Player):
     def generate_form(self):
         pass
 
+    def __eq__(self, other):
+        return isinstance(other, Midfield)
+
 
 class Defender(Player):
     tackles_won = 0
@@ -52,6 +54,10 @@ class Defender(Player):
 
     def generate_form(self):
         pass
+
+    def __eq__(self, other):
+        print("/n IS INSTANCE /n")
+        return isinstance(other, Defender)
 
 
 class Forward(Player):
@@ -85,4 +91,4 @@ class Goalkeeper(Player):
         self.saves += 1
 
     def generate_form(self):
-        pass
+        return self.saves / self.goal_allowed

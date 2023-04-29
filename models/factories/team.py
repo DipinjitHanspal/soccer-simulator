@@ -1,11 +1,10 @@
 from random import choice, sample
 
 import names
+from factories.player import generate_player
+from position import Position
 
 from exceptions import InvalidTeamSizeException
-from factories.player import generate_player
-from models.player import Player
-from models.position import Position
 
 
 def generate_players(count: int, position: Position = None):
@@ -14,10 +13,7 @@ def generate_players(count: int, position: Position = None):
         name = names.get_full_name(gender="male")
         position = choice(list(Position))
         player = generate_player(name, position)
-        # print("player: ", player)
         players.append(player)
-        # print("players after adding someone: ", players)
-    # print("players after adding everyone", players)
     return players
 
 
@@ -42,11 +38,10 @@ def generate_players_for_team(num_players_on_team=20):
     if num_players_on_team < required_players_remaining:
         raise InvalidTeamSizeException()
     for position in min_count.keys():
-        player = generate_players(min_count[position], position)
-        players.extend(player)
+        players_generated = generate_players(min_count[position], position)
+        players.extend(players_generated)
     while len(players) < num_players_on_team:
         position = choice(list(Position))
         player = generate_players(1, position)
         players.extend(player)
-    # print("GENERATED PLAYERS", players)
     return players

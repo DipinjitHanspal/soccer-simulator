@@ -36,28 +36,13 @@ class Team:
 
     def _bin_players(self):
         for player in self.players:
-            if player.position.name in [
-                Position.LEFT_BACK.name,
-                Position.RIGHT_BACK.name,
-                Position.CENTER_BACK.name,
-            ]:
+            if type(player) == Defender:
                 self.defenders.append(player)
-            elif player.position.name in [
-                Position.LEFT_MIDFIELD.name,
-                Position.RIGHT_MIDFIELD.name,
-                Position.CENTRAL_MIDFIELD.name,
-                Position.CENTRAL_ATTACKING_MIDFIELD.name,
-                Position.CENTRAL_DEFENSIVE_MIDFIELD.name,
-            ]:
+            elif type(player) == Midfield:
                 self.midfield.append(player)
-            elif player.position.name in [
-                Position.LEFT_WING.name,
-                Position.RIGHT_WING.name,
-                Position.CENTER_FORWARD.name,
-                Position.STRIKER.name,
-            ]:
+            elif type(player) == Forward:
                 self.forwards.append(player)
-            elif player.position.name in [Position.GOALKEEPER.name]:
+            elif type(player) == Goalkeeper:
                 self.goalkeepers.append(player)
             else:
                 self.subs.append(player)
@@ -73,6 +58,10 @@ class Team:
             ]
         ):
             raise IncompleteTeamException
+
+    def generate_form(self):
+        for player in self.players:
+            player.generate_form()
 
     def name(self):
         return self.name
