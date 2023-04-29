@@ -1,10 +1,9 @@
 from random import choice, sample
 
 import names
+from exceptions import InvalidTeamSizeException
 from factories.player import generate_player
 from position import Position
-
-from exceptions import InvalidTeamSizeException
 
 
 def generate_players(count: int, position: Position = None):
@@ -36,7 +35,8 @@ def generate_players_for_team(num_players_on_team=20):
     players = []
     required_players_remaining = sum(min_count.values())
     if num_players_on_team < required_players_remaining:
-        raise InvalidTeamSizeException()
+        print(InvalidTeamSizeException)
+        raise InvalidTeamSizeException
     for position in min_count.keys():
         players_generated = generate_players(min_count[position], position)
         players.extend(players_generated)

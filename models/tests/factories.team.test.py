@@ -4,6 +4,7 @@ sys.path.append("/Users/dipin/Development/SoccerSimulator/")
 sys.path.append("/Users/dipin/Development/SoccerSimulator/models")
 import unittest
 
+from exceptions import IncompleteTeamException
 from factories.team import generate_players, generate_players_for_team
 
 

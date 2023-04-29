@@ -1,10 +1,9 @@
 import logging
 from typing import List
 
+from exceptions import IncompleteTeamException
 from player import Defender, Forward, Goalkeeper, Midfield, Player
 from position import Position
-
-from exceptions import IncompleteTeamException
 
 
 class Team:
